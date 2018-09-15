@@ -1,0 +1,1 @@
+NArtMaterial.ClearEditorMaterials()

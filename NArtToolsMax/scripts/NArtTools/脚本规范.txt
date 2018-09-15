@@ -1,0 +1,57 @@
+NArtFunctions ：
+
+	各类方法的都写到这里，文件名用fn开头；例：Fn0010_NArtName
+	这里的方法都会在启动MAX之后自动加载上，其它脚本可以放心调用。
+
+NArtAction ：
+
+	一般命令，文件名用Act开头；
+
+	例：Act0100_NArtAutoExport；
+
+
+NArtBatch  ：
+
+	批处理命令，文件名用Bat开头；例：Bat0100_NArtAutoExport
+
+	用于批处理脚本调用；
+
+	为保证批处理过程流畅，脚本中不能有任何形式的提示框及选择操作；
+	
+	第一行为脚本中文名称 格式为： --自动输出FBX
+
+NArtWindow ：
+	
+	有界面窗口的工具，文件名用Win开头；例：Win0100_NArtExport；
+	
+	尽量把能服用的功能写在Fn里；	
+
+NArtMacros ：
+	
+	宏命令，文件名用Mcr开头；例：
+
+	宏命令是为了方便使用者设置快捷键与菜单设计的，内容中尽量不写功能实现，只调用其它脚本文件。
+	
+	调用方法 ：
+		NArtName.ScriptFileIn <脚本文件名> 
+	只要是按规范写的脚本都可以用这个方法调用。
+	
+	宏命令，例：
+		macroScript NArtDataDisplay
+		category:"_NArtTools"
+		toolTip:"场景信息"
+		buttontext:"场景信息"
+		(
+			on execute do
+			(
+				NArtName.ScriptFileIn "Win0560_NArtDataDisplay"
+			)
+	
+		)
+
+NArtSettings
+	
+	用于储存脚本生成的设置文件等
+	
+	NArtSettings/Local 这个文件夹会在SVN中设置成忽略，可以让每个人有不同设置
+
